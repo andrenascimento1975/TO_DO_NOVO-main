@@ -1,0 +1,12 @@
+{% extends 'login/main.html' %}
+{% block content %}
+
+<a href="{% url 'tarefas' %} ">Retornar</a>
+
+<form method='POST'>
+  {% csrf_token %}
+  <p>Tem certeza de que deseja apagar {{ tarefa }} ?</p>
+  <input type="submit" value="Apagar">
+</form>
+
+{% endblock content %}

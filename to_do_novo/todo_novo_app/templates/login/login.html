@@ -1,0 +1,17 @@
+{% extends 'login/main.html' %}
+{% block content %}
+
+<h1>Real Time Scrum</h1>
+
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="login">
+
+</form>
+
+<p>Não tem uma conta?<a href='{% url 'registrar' %}'>Registrar</a></p>
+
+<h3>Powered by CGI</h3>
+
+{% endblock content %}

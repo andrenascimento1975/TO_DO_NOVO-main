@@ -1,0 +1,18 @@
+{% extends 'login/main.html' %}
+{% block content %}
+
+<h3>Formulario</h3>
+
+
+<a href="{% url 'subgrupos' id_grupo %}">Retornar</a>
+
+
+<form method="POST" action="">
+
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="enviar">
+
+</form>
+
+{% endblock content %}

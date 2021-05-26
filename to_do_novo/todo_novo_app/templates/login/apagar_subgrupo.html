@@ -1,0 +1,12 @@
+{% extends 'login/main.html' %}
+{% block content %}
+
+<a href="{% url 'subgrupos' id_grupo %} ">Retornar</a>
+
+<form method='POST'>
+  {% csrf_token %}
+  <p>Tem certeza de que deseja apagar {{ subgrupo }} ?</p>
+  <input type="submit" value="ApagaSubGrupo">
+</form>
+
+{% endblock content %}
