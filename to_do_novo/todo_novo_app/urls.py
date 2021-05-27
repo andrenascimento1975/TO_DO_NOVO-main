@@ -1,7 +1,7 @@
 from django.urls import path
 from .models import Tarefa, Grupos, Sub_Grupos
-from .views import Logar, Registrar, ListaTarefa, TodasTarefas, VisualizaGrupo, VisualizaSubGrupo, Criar, CriarGrupo, Atualizar, \
-    AtualizarGrupo, AtualizarSubGrupo, Apagar, ApagarGrupo, MostraSubGrupo, pega_get, pega_get_tarefa, exclui_subgrupo, edita_subgrupo, exclui_tarefa, edita_tarefa
+from .views import Logar, Registrar, ListaTarefa, TodasTarefas, VisualizaGrupo, VisualizaSubGrupo, CriarGrupo, AtualizarGrupo, \
+    ApagarGrupo, MostraSubGrupo, pega_get, pega_get_tarefa, exclui_subgrupo, edita_subgrupo, exclui_tarefa, edita_tarefa
 from django.contrib.auth.views import LogoutView
 from django.views.generic import TemplateView
 

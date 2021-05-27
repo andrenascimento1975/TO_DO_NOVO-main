@@ -23,7 +23,7 @@ class Sub_Grupos(models.Model):
 class Tarefa(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     grupo = models.ForeignKey(Grupos, on_delete=models.CASCADE, null=True, blank=True, related_name='tarefa_grupos')
-    sub_grupo = models.ForeignKey(Sub_Grupos, on_delete=models.CASCADE, null=True, blank=True, related_name='tarefa_subgrupos')
+    subgrupo_tar_id = models.ForeignKey(Sub_Grupos, on_delete=models.CASCADE, null=True, blank=True, related_name='tarefa_subgrupos')
     title = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     complete = models.BooleanField(default=False)
