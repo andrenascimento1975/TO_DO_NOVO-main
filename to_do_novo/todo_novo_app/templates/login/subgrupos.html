@@ -5,6 +5,8 @@
     <div>
         <h1>Hello, {{ request.user.first_name }}</h1>
         <h3 style="margin:0">Você tem <i>{{ count }}</i> itens incompletos.</h3>
+        <a href="{% url 'grupos' %} ">Home</a>
+
     </div>
 
 {% if request.user.is_authenticated %}

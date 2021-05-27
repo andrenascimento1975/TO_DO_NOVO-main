@@ -223,18 +223,24 @@ class Apagar(DeleteView, LoginRequiredMixin):
 def exclui_tarefa(request, pk):
 
     item_tarefa = Tarefa.objects.get(id=pk)
-    id_subgrupo = item_tarefa.subgrupo_tar_id
+    print(item_tarefa)
+    id_subgrupo = item_tarefa.subgrupo_tar_id.id
+    print(id_subgrupo)
+    id_usuario = item_tarefa.user_id
 
     if request.method == 'POST':
-        item.delete()
-        return redirect(f'/tarefas/{id_subgrupo}')
+        item_tarefa.delete()
+        return redirect(f'/mostra_subgrupo/{id_subgrupo}')
 
-    return render(request, 'login/confirmar.html', {'pk': pk, 'id_subgrupo': id_subgrupo})
+    return render(request, 'login/confirmar.html', {'pk': pk, 'id_usuario': id_usuario, 'item_tarefa': item_tarefa, 'id_subgrupo': id_subgrupo})
 
 def edita_tarefa(request, pk):
 
     item_tarefa = Tarefa.objects.get(id=pk)
-    id_subgrupo = item_tarefa.subgrupo_tar_id
+    id_subgrupo = item_tarefa.subgrupo_tar_id.id
+    id_usuario = item_tarefa.user_id
+    id_grupo = item_tarefa.grupo.id
+    print(id_grupo)
 
     if request.method == 'POST':
         item = get_object_or_404(Sub_Grupos, id=pk)
@@ -242,9 +248,9 @@ def edita_tarefa(request, pk):
         form = TarefasForm(request.POST, instance=item)
         if form.is_valid():
             form.save()
-            return redirect(f'/tarefas/{id_subgrupo}')
+            return redirect(f'/mostra_subgrupo/{id_subgrupo}')
     else:
         item = Tarefa.objects.filter(id=pk).values().last()
         form = TarefasForm(initial=item)
 
-    return render(request, 'login/tarefa_list.html', {'pk': pk, 'form': form, 'id_subgrupo': id_subgrupo})
+    return render(request, 'login/formulario.html', {'pk': pk, 'id_grupo': id_grupo, 'item': item, 'form': form, 'id_usuario': id_usuario, 'item_tarefa': item_tarefa, 'id_subgrupo': id_subgrupo})

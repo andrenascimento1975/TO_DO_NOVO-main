@@ -7,6 +7,7 @@
         <h1>Hello, {{ request.user.first_name }}</h1>
         <h3 style="margin:0">Você tem <i>{{ count }}</i> itens incompletos.</h3>
         <h3 style="margin:0"> <a href="{% url 'grupos' %}">Ver Lista de Grupos</a></h3>
+        <h3 style="margin:0"> <a href="{% url 'subgrupos' %}">Ver Lista de SubGrupos</a></h3>
     </div>
 
 {% if request.user.is_authenticated %}

@@ -1,11 +1,11 @@
 {% extends 'login/main.html' %}
 {% block content %}
 
-<a href="{% url 'tarefas' %} ">Retornar</a>
+<a href="{% url 'mostra_subgrupo' id_subgrupo %} ">Retornar</a>
 
 <form method='POST'>
   {% csrf_token %}
-  <p>Tem certeza de que deseja apagar {{ tarefa }} ?</p>
+  <p>Tem certeza de que deseja apagar {{ item_tarefa }} ?</p>
   <input type="submit" value="Apagar">
 </form>
 

@@ -5,6 +5,8 @@
 <div class='header-bar'>
     <div>
         <h1>Hello, {{ request.user.first_name }}</h1>
+        <a href="{% url 'grupos' %} ">Home</a>
+        <a href="{% url 'subgrupos' pk %} ">Retornar</a>
     </div>
 
 {% if request.user.is_authenticated %}
